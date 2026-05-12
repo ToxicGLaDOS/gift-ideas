@@ -16,6 +16,34 @@
     .small {
         font-size: small;
     }
+
+    .rainbow {
+      display: inline-block;
+      text-shadow: 2px 2px black;
+      animation: rainbow-pulse .7s, wiggle 4s, pulse 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+
+    @keyframes wiggle {
+      0%   {rotate: -15deg;}
+      50%  {rotate:  15deg;}
+      100% {rotate: -15deg;}
+    }
+
+    @keyframes pulse {
+      0%   {scale: .75;}
+      50%  {scale: 1.25;}
+      100% {scale: .75;}
+    }
+
+     @keyframes rainbow-pulse {
+      0%   {color: red;}
+      25%  {color: yellow;}
+      50%  {color: blue;}
+      100% {color: red;}
+    }
 </style>
 
 <head>
@@ -26,14 +54,33 @@
       <source src="all_i_want_for_christmas_is_miku.mp3" type="audio/mpeg">
     </audio>
     <img src="snow.gif" class="full-screen background" />
-    <img src="christmas_tree.png" class="background" width="300px" style="top:1vh; left:1vw;" />
+    <img src="christmas_tree.png" class="background" width="300px" style="top:1vh; left:12vw;" />
     <img src="christmas_tree.png" class="background" width="300px" style="top:10vh; left:65vw;" />
     <img src="christmas_tree.png" class="background" width="300px" style="top:50vh; left:15vw;" />
     <img src="christmas_tree.png" class="background" width="300px" style="top:75vh; left:40vw;"/>
     <img src="christmas_tree.png" class="background" width="300px" style="top:0vh; left:90vw;"/>
 
     <img src="title.png" style="margin:0 0 0 55vw;"/>
-    <p><a href="https://www.amazon.com/hz/wishlist/ls/3UN0FMNR4O0PB?ref_=wl_share">An Amazon list Amazon</a>. Amazon support "notes" on items in lists, I use them sometimes!</p>
-    <p><a href="https://www.discogs.com/wantlist?user=Shalo123">A Discogs list</a> many items on the lists are duplicates of the same release, but in different colors or slight variations. I usually add them all. Generally, I don't care which color is choosen that much.</p>
-    <span><a href="/gameWishlist.html">My video game wishlist</a></span> <span class=small>Also available as a <a href="/gameye_wishlist_current.csv">raw CSV file</a> from the app I use</span>
+    <div><h1 class=rainbow>General ideas</h1></div>
+     <ul>
+      <li>Physical Media</li>
+      <ul>
+        <li>Video Games</li>
+        <li>Movies</li>
+        <li>TV Shows</li>
+        <li>Anime</li>
+        <li>Music</li>
+      </ul>
+      <li>Figurines</li>
+      <li>Board Games</li>
+    </ul>
+
+    <!-- The animation-delay has to be negative to make an offset but not
+        _actually_ delay the animation at all -->
+    <h1 style="animation-delay: -1s;" class=rainbow>Specific stuff</h1>
+    <p><a href="https://www.discogs.com/wantlist?user=Shalo123">My Discogs wantlist</a> for music. Many items on the lists are duplicates of the same album, but in different colors or slight variations. I usually add them all, because I don't care which color is choosen that much.</p>
+    <span><a href="/gameWishlist.html">My video game wishlist</a>.</span> <span class=small>Also available as a <a href="/gameye_wishlist_current.csv">raw CSV file</a> from the app I use</span>
+    <p><a href="https://www.amazon.com/hz/wishlist/ls/3UN0FMNR4O0PB?ref_=wl_share">An Amazon list</a>. Amazon supports "notes" on items in lists, I try to leave details that may be relevant there.</p>
+
+    <div style="display: flex; align-items: center;">I like candy, including: <img src="/static/strawberry_puffs.png" style="height: 19vh"/><img src="/static/charleston_chew.png" style="height: 19vh"/><img src="/static/licorice.png" style="height: 19vh"/></div>
 </body>
