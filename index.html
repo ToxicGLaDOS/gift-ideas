@@ -11,6 +11,7 @@
     .full-screen {
         position: absolute;
         width: 100%;
+        height: 100%;
     }
 
     .small {
@@ -25,6 +26,9 @@
       animation-iteration-count: infinite;
     }
 
+    .invisible {
+      visibility: hidden;
+    }
 
     @keyframes wiggle {
       0%   {rotate: -15deg;}
@@ -47,40 +51,66 @@
 </style>
 
 <head>
+    <script>
+        function enterSite() {
+            console.log("open the gates");
+            let music = document.getElementById("music");
+            music.play();
+            let entrypoint = document.getElementById("entrypoint");
+            entrypoint.remove()
+            let main = document.getElementById("main");
+            main.style.visibility = 'visible';
+        }
+    </script>
 </head>
 
 <body>
-    <audio autoplay id="music">
-      <source src="all_i_want_for_christmas_is_miku.mp3" type="audio/mpeg">
-    </audio>
-    <img src="snow.gif" class="full-screen background" />
-    <img src="christmas_tree.png" class="background" width="300px" style="top:1vh; left:12vw;" />
-    <img src="christmas_tree.png" class="background" width="300px" style="top:10vh; left:65vw;" />
-    <img src="christmas_tree.png" class="background" width="300px" style="top:50vh; left:15vw;" />
-    <img src="christmas_tree.png" class="background" width="300px" style="top:75vh; left:40vw;"/>
-    <img src="christmas_tree.png" class="background" width="300px" style="top:0vh; left:90vw;"/>
+    <div id="entrypoint" style="display: flex; flex-direction: column; align-items: center;">
+      <h1 class="rainbow" style="align: center">Click Miku to see gift ideas!</h1>
+      <img src="/static/santa_miku.jpg" style="width: 50%;" onclick="enterSite()">
+    </div>
+    <div id="main" class="invisible">
+      <audio autoplay id="music">
+        <source src="all_i_want_for_christmas_is_miku.mp3" type="audio/mpeg">
+      </audio>
+      <img src="christmas_tree.png" class="background" width="300px" style="top:1vh; left:12vw;" />
+      <img src="christmas_tree.png" class="background" width="300px" style="top:10vh; left:65vw;" />
+      <img src="christmas_tree.png" class="background" width="300px" style="top:50vh; left:15vw;" />
+      <img src="christmas_tree.png" class="background" width="300px" style="top:75vh; left:40vw;"/>
+      <img src="christmas_tree.png" class="background" width="300px" style="top:0vh; left:90vw;"/>
+      <img src="/static/santa_dance.gif" class="background" width="300px" style="top:11vh; left:30vw;"/>
+      <img src="/static/dancing_cow.gif" class="background" width="300px" style="top:55vh; left:60vw;"/>
+      <img src="/static/leek_spin.gif" class="background" width="300px" style="top:20vh; left:80vw;"/>
+      <img src="/static/miku_default_dance.gif" class="background" width="300px" style="top:75vh; left:80vw;"/>
+      <img src="snow.gif" class="full-screen background" />
 
-    <img src="title.png" style="margin:0 0 0 55vw;"/>
-    <div><h1 class=rainbow>General ideas</h1></div>
-     <ul>
-      <li>Physical Media</li>
-      <ul>
-        <li>Video Games</li>
-        <li>Movies</li>
-        <li>TV Shows</li>
-        <li>Anime</li>
-        <li>Music</li>
+      <img src="title.png" style="margin:0 0 0 50vw;"/>
+      <div><h1 class=rainbow>General ideas</h1></div>
+       <ul>
+        <li>Physical Media</li>
+        <ul>
+          <li>Video Games</li>
+          <li>Movies</li>
+          <li>TV Shows</li>
+          <li>Anime</li>
+          <li>Music</li>
+        </ul>
+        <li>Figurines</li>
+        <li>Board Games</li>
       </ul>
-      <li>Figurines</li>
-      <li>Board Games</li>
-    </ul>
 
-    <!-- The animation-delay has to be negative to make an offset but not
-        _actually_ delay the animation at all -->
-    <h1 style="animation-delay: -1s;" class=rainbow>Specific stuff</h1>
-    <p><a href="https://www.discogs.com/wantlist?user=Shalo123">My Discogs wantlist</a> for music. Many items on the lists are duplicates of the same album, but in different colors or slight variations. I usually add them all, because I don't care which color is choosen that much.</p>
-    <span><a href="/gameWishlist.html">My video game wishlist</a>.</span> <span class=small>Also available as a <a href="/gameye_wishlist_current.csv">raw CSV file</a> from the app I use</span>
-    <p><a href="https://www.amazon.com/hz/wishlist/ls/3UN0FMNR4O0PB?ref_=wl_share">An Amazon list</a>. Amazon supports "notes" on items in lists, I try to leave details that may be relevant there.</p>
+      <!-- The animation-delay has to be negative to make an offset but not
+          _actually_ delay the animation at all -->
+      <h1 style="animation-delay: -1s;" class=rainbow>Specific stuff</h1>
+      <p><a href="https://www.discogs.com/wantlist?user=Shalo123">My Discogs wantlist</a> for music. Many items on the lists are duplicates of the same album, but in different colors or slight variations. I usually add them all, because I don't care which color is choosen that much.</p>
+      <span><a href="https://www.gameye.app/user/toxicglados/wishlist">My video game wishlist</a>.</span> <span class=small>Watch out! A few games on there are from Tina's wishlist ;)</span>
+      <p><a href="https://www.amazon.com/hz/wishlist/ls/3UN0FMNR4O0PB?ref_=wl_share">An Amazon list</a>. Amazon supports "notes" on items in lists, I try to leave details that may be relevant there.</p>
 
-    <div style="display: flex; align-items: center;">I like candy, including: <img src="/static/strawberry_puffs.png" style="height: 19vh"/><img src="/static/charleston_chew.png" style="height: 19vh"/><img src="/static/licorice.png" style="height: 19vh"/></div>
+      <div style="display: flex; align-items: center;">I like candy, including: 
+          <img src="/static/strawberry_puffs.png" style="height: 19vh"/>
+          <img src="/static/charleston_chew.png" style="height: 19vh"/>
+          <img src="/static/licorice.png" style="height: 19vh"/>
+          <img src="/static/100grand.jpg" style="height: 19vh"/>
+      </div>
+    </div>
 </body>
